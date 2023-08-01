@@ -46,3 +46,22 @@ Origin airport
 Arrival airport  
 
 # Outcomes
+2014-17 Train, 2018 Test/Validation  
+XGBoost - Training Accuracy 70.9%, Testing Accuracy 68.5%  
+Random Forest - Training Accuracy 57.5%, Testing Accuracy 57.4%  
+XGBoost with optimization - Training Accuracy 72.8%, Testing Accuracy 68.7%  
+XGBoost All Airlines w/o Airport - Training Accuracy 65.7%, Testing Accuracy 65.7%  
+
+# Day of Prediction
+On the day of your flight, you can use Flight Aware to check if your incoming flight is delayed. The closest variable to represent this in the dataset is "Departure Delay".  
+XGBoost - Training Accuracy 78.0%, Testing Accuracy 77.4%  
+Note: Using a model with the Departure Delay feature dramatically reduces the scope of what the model can be used for.
+
+# Conclusions
+XGBoost best model 68.5% accuracy compared to Random Forest 57.4% accuracy  
+Optimization with XGBoost <1%, but 3x training time (Google Colab)  
+Dropping smaller airports and airlines +3% accuracy  
++8% higher prediction rate the day of the flight (when departure status is known)  
+
+# Future Work
+Higher accuracy is needed for the model to be deployed. Methods of improving the model include using the Flight Aware average delay data and including weather along the flight path as a feature. Longer term, I'd like to convert the model from binary classification to a set of outcomes (on time, small <15min, medium 15-30min, and large delay >30 min)
